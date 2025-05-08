@@ -67,6 +67,7 @@ public class GameFrame extends JFrame implements KeyListener {
         // System.out.println("keyCode : " + e.getKeyCode());
         // TODO 화살표만 추출해 낼 예정..
         int code = e.getKeyCode();
+
         if(code == KeyEvent.VK_UP) {
             playerY -= 10;
         } else if(code == KeyEvent.VK_DOWN) {
