@@ -85,10 +85,9 @@ public class CafeMenuManager {
 
     // 코드의 진입점
     public static void main(String[] args) {
-        // insertMenu("커피", 2000, "커피류");
-        // updateMenuPrice(3000, "커피");
-        // selectAllMenu();
+
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
             System.out.println("\\n=== 카페 메뉴 관리 시스템 ===");
             System.out.println("1. 메뉴 추가");
@@ -100,12 +99,44 @@ public class CafeMenuManager {
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // 버퍼 비우기
-
             // switch 사용해서 동작 흐름 만들어 보기
-
+            switch (choice) {
+                case 1:
+                    System.out.println("메뉴 이름 : ");
+                    String name = scanner.nextLine();
+                    System.out.println("메뉴 가격 : ");
+                    int price = scanner.nextInt();
+                    // 버그 (정수값을 받았기 때문에 )
+                    scanner.nextLine(); // 버퍼 비우기
+                    System.out.println("카테고리 : ");
+                    String category = scanner.nextLine();
+                    insertMenu(name, price, category);
+                    break;
+                case 2:
+                    System.out.println("수정할 메뉴 이름 : ");
+                    String updateName = scanner.nextLine();
+                    System.out.println("수정할 가격 : ");
+                    int newPrice = scanner.nextInt();
+                    updateMenuPrice(newPrice, updateName);
+                    // scanner.nextLine(); // 버퍼 비우기
+                    break;
+                case 3:
+                    System.out.println("삭제할 메뉴 이름 : ");
+                    String deleteName = scanner.nextLine();
+                    deleteMenu(deleteName);
+                    break;
+                case 4:
+                    selectAllMenu();
+                    break;
+                case 5:
+                    System.out.println("프로그램을 종료 합니다.");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("잘못된 선택입니다. 1~5까지 사이 숫자를 입력");
+            }
         }
-
 
     } // end of main
 
-}
+} // end of class
