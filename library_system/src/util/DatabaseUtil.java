@@ -14,7 +14,7 @@ public class DatabaseUtil {
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "asd1234";
 
-    // 데이터 베이스 연결 객체를 반환 하는 함수
+    // 데이터 베이스 연결 객체a를 반환 하는 함수
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
     }
